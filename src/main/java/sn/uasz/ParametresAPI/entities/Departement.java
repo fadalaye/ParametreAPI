@@ -14,6 +14,7 @@ public class Departement {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column(name = "nomDepartement")  // Force le nom exact de colonne
     private String nomDepartement;
 //    @ManyToOne
 //    @JoinColumn(name = "ufrDepartmnt")
@@ -21,7 +22,9 @@ public class Departement {
 
     //@OneToMany(mappedBy = "departement")
     //List<Formation> formations = new ArrayList<>();
-
+    @Column(name = "createby")
     private String createby;
+
+    @Column(name = "createAt")
     private String createAt;
 }

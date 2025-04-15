@@ -1,5 +1,6 @@
 package sn.uasz.ParametresAPI.dto;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -15,6 +16,7 @@ import lombok.NoArgsConstructor;
 @Data // Utilisation de Lombok pour générer les méthodes getter, setter, toString, etc.
 @AllArgsConstructor // Génère un constructeur avec tous les paramètres
 @NoArgsConstructor // Génère un constructeur sans paramètres
+@Builder
 public class DepartementDto {
 
     /**

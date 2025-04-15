@@ -1,43 +1,34 @@
 package sn.uasz.ParametresAPI.mappers;
 
+import lombok.Builder;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import sn.uasz.ParametresAPI.dto.DepartementDto;
 import sn.uasz.ParametresAPI.entities.Departement;
+import org.springframework.stereotype.Component;
 
-/**
- * Mapper pour convertir entre les entités Departement et DepartementDto.
- *
- * Cette classe fournit des méthodes pour transformer les objets
- * entre les couches de l'application.
- *
- * @author [Votre Nom]
- * @version 1.0
- */
-@Service
+@Component // Plus approprié qu'@Service pour un mapper
 public class DepartementMapper {
 
-    /**
-     * Convertit une entité Departement en un DTO DepartementDto.
-     *
-     * @param departement l'entité à convertir.
-     * @return un {@link DepartementDto} représentant le département.
-     */
-    public DepartementDto toDepartementDto(Departement departement) {
-        DepartementDto departementDto = new DepartementDto();
-        BeanUtils.copyProperties(departement, departementDto);
-        return departementDto;
+    public DepartementDto toDto(Departement entity) {
+        if (entity == null) return null;
+
+        return DepartementDto.builder()
+                .id(entity.getId())
+                .nomDepartement(entity.getNomDepartement())
+                .createby(entity.getCreateby()) // Notez la casse cohérente
+                .createAt(entity.getCreateAt())
+                .build();
     }
 
-    /**
-     * Convertit un DTO DepartementDto en une entité Departement.
-     *
-     * @param departementDto le DTO à convertir.
-     * @return une {@link Departement} représentant le département.
-     */
-    public Departement toDepartement(DepartementDto departementDto) {
-        Departement departement = new Departement();
-        BeanUtils.copyProperties(departementDto, departement);
-        return departement;
+    public Departement toEntity(DepartementDto dto) {
+        if (dto == null) return null;
+
+        return Departement.builder()
+                .id(dto.getId())
+                .nomDepartement(dto.getNomDepartement())
+                .createby(dto.getCreateby()) // Adaptation de la casse
+                .createAt(dto.getCreateAt())
+                .build();
     }
 }
