@@ -4,17 +4,14 @@ import sn.uasz.ParametresAPI.dto.NiveauDto;
 import sn.uasz.ParametresAPI.entities.Niveau;
 
 public class NiveauMapper {
+
+    // Convertir Niveau en NiveauDto
     public static NiveauDto toDto(Niveau niveau) {
-        NiveauDto dto = new NiveauDto();
-        dto.setId(niveau.getId());
-        dto.setNom(niveau.getNom());
-        return dto;
+        return new NiveauDto(niveau.getId(), niveau.getNom());
     }
 
-    public static Niveau toEntity(NiveauDto dto) {
-        Niveau niveau = new Niveau();
-        niveau.setId(dto.getId());
-        niveau.setNom(dto.getNom());
-        return niveau;
+    // Convertir NiveauDto en Niveau
+    public static Niveau toEntity(NiveauDto niveauDto) {
+        return new Niveau(niveauDto.getId(), niveauDto.getNom());
     }
 }
