@@ -1,0 +1,7 @@
+sonar.projectKey=ParametresAPI
+sonar.token=squ_e4f79e29882a2f67a243c436cb8633c28eb3c235
+sonar.host.url=http://localhost:9000
+sonar.sourceEncoding=UTF-8
+sonar.sources=src/main/java
+sonar.tests=src/test/java
+sonar.java.binaries=target/classes
