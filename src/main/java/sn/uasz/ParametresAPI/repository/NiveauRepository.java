@@ -1,4 +1,9 @@
 package sn.uasz.ParametresAPI.repository;
 
-public interface NiveauRepository {
+import org.springframework.data.domain.Page;
+import org.springframework.data.jpa.repository.JpaRepository;
+import sn.uasz.ParametresAPI.entities.Niveau;
+
+public interface NiveauRepository extends JpaRepository<Niveau, Long> {
+    Page<Niveau> findByNomContainingIgnoreCase(String nom);
 }
